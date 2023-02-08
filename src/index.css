@@ -3,6 +3,9 @@
 	--background-dark: #202020;
 	--background-light: #313131;
 	--blue: #5958b6;
+	--light-blue: #6360e9;
+	--dark-blue: #29294e;
+	--night-blue: #1e1e31;
 	/* border-radius */
 	--small-border-radius: 0.5rem;
 	--default-border-radius: 1rem;
@@ -16,9 +19,11 @@
 	--default-margin: 1rem;
 	--medium-margin: 2rem;
 	/* padding */
+	--little-padding: 0.25rem;
 	--small-padding: 0.5rem;
 	--default-padding: 1rem;
 	--medium-padding: 2rem;
+	--big-padding: 3rem;
 }
 
 *,

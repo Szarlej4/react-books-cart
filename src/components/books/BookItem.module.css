@@ -1,7 +1,8 @@
 .bookItem {
 	align-items: start;
+	color: rgb(193, 185, 209);
 	display: flex;
-	border-bottom: 1px solid #c1c1c1;
+	border-bottom: 1px solid rgb(193, 185, 209);
 	flex-direction: column;
 	gap: 0.5rem;
 	padding-bottom: var(--default-padding);
@@ -18,7 +19,7 @@
 }
 
 .bookPrice {
-	color: rgb(226, 193, 6);
+	color: var(--light-blue);
 	font-size: 1.25rem;
-	font-weight: bold;
+	font-weight: 900;
 }

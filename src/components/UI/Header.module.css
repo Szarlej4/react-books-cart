@@ -4,7 +4,7 @@ header {
 }
 
 .nav {
-	background: var(--blue);
+	background: var(--dark-blue);
 	box-shadow: var(--strongest-box-shadow);
 	left: 0;
 	padding: var(--default-padding);
@@ -31,6 +31,7 @@ header {
 }
 
 .nav__wrapper {
+	align-items: center;
 	display: flex;
 	height: min-content;
 	justify-content: space-between;
@@ -92,8 +93,11 @@ header {
 }
 
 @media (max-width: 768px) {
+	.nav {
+		padding: var(--default-padding) var(--small-padding);
+	}
 	.nav__logo {
-		font-size: 1.5rem;
+		font-size: 2rem;
 	}
 	.desc__title {
 		font-size: 2rem;
