@@ -64,6 +64,7 @@ header {
 .desc {
 	align-items: center;
 	background: var(--background-light);
+	box-shadow: 0 0 1rem 1rem rgba(0, 0, 0, 0.25);
 	border-radius: 1rem;
 	color: white;
 	display: flex;
