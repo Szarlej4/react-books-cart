@@ -92,6 +92,9 @@ header {
 }
 
 @media (max-width: 768px) {
+	.nav__logo {
+		font-size: 1.5rem;
+	}
 	.desc__title {
 		font-size: 2rem;
 	}
