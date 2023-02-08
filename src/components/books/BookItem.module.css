@@ -1,0 +1,24 @@
+.bookItem {
+	align-items: start;
+	display: flex;
+	border-bottom: 1px solid #c1c1c1;
+	flex-direction: column;
+	gap: 0.5rem;
+	padding-bottom: var(--default-padding);
+}
+
+.bookTitle {
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+.bookAuthor {
+	font-size: 1.25rem;
+	text-decoration-line: underline;
+}
+
+.bookPrice {
+	color: rgb(226, 193, 6);
+	font-size: 1.25rem;
+	font-weight: bold;
+}
