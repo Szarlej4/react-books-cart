@@ -48,7 +48,7 @@ const BookForm = (props) => {
 				</label>
 				<input
 					defaultValue="1"
-					min={0}
+					min={1}
 					step={1}
 					type="number"
 					id="weeksAmount"
