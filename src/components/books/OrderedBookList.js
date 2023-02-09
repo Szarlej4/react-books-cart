@@ -7,8 +7,8 @@ const OrderedBookList = () => {
 	const ctx = useContext(CartContext);
 	return (
 		<ul className={styles.bookList}>
-			{ctx.orderedBooks.map((book) => (
-				<OrderedBookItem book={book} />
+			{ctx.orderedBooks.map((book, id) => (
+				<OrderedBookItem key={id} book={book} />
 			))}
 		</ul>
 	);

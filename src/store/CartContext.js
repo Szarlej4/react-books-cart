@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import Book from "../classes/Book";
+import Book from "../classes/Book/Book";
 
 export const CartContext = createContext({
 	availableBooks: [],
@@ -12,11 +12,11 @@ export const CartContext = createContext({
 export const CartContextProvider = (props) => {
 	const [orderedBooks, setOrderedBooks] = useState([]);
 
-	const addedBookHandler = (bookId) => {
+	const addedBookHandler = (bookId, amount) => {
 		setOrderedBooks((orderedBooks) => [
 			{
 				bookId: bookId,
-				rentalTime: 1,
+				rentalTime: amount,
 			},
 			...orderedBooks,
 		]);
@@ -41,11 +41,12 @@ export const CartContextProvider = (props) => {
 		<CartContext.Provider
 			value={{
 				availableBooks: [
-					new Book("1984", "George Orwell", 1.69),
-					new Book("The Lord of the Rings", "J.R.R Tolkien", 2.99),
-					new Book("The Kite Runner", "Khaled Hosseini", 2.39),
-					new Book("Slaughterhouse-Five", "Kurt Vonnegut", 2.19),
+					new Book(0, "1984", "George Orwell", 1.69),
+					new Book(1, "The Lord of the Rings", "J.R.R Tolkien", 2.99),
+					new Book(2, "The Kite Runner", "Khaled Hosseini", 2.39),
+					new Book(3, "Slaughterhouse-Five", "Kurt Vonnegut", 2.19),
 					new Book(
+						4,
 						"The Lion, the Witch, and the Wardrobe",
 						"C.S. Lewis",
 						1.79,
