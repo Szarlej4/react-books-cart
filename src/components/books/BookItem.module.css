@@ -1,11 +1,16 @@
 .bookItem {
+	border-bottom: 1px solid rgb(193, 185, 209);
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: var(--default-padding);
+}
+
+.bookInfo {
 	align-items: start;
 	color: rgb(193, 185, 209);
 	display: flex;
-	border-bottom: 1px solid rgb(193, 185, 209);
 	flex-direction: column;
 	gap: 0.5rem;
-	padding-bottom: var(--default-padding);
 }
 
 .bookTitle {
@@ -22,4 +27,12 @@
 	color: var(--light-blue);
 	font-size: 1.25rem;
 	font-weight: 900;
+}
+
+@media (max-width: 600px) {
+	.bookItem {
+		align-items: start;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
 }
