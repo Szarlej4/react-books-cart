@@ -3,6 +3,7 @@ import Book from "../classes/Book";
 
 export const CartContext = createContext({
 	availableBooks: [],
+	orderedBooks: [],
 	onAddedBook: (book) => {},
 	onRemovedBook: (book) => {},
 	onChangedBookRentalTime: (book, amount) => {},
@@ -11,26 +12,26 @@ export const CartContext = createContext({
 export const CartContextProvider = (props) => {
 	const [orderedBooks, setOrderedBooks] = useState([]);
 
-	const addedBookHandler = (book) => {
+	const addedBookHandler = (bookId) => {
 		setOrderedBooks((orderedBooks) => [
 			{
-				book: book,
+				bookId: bookId,
 				rentalTime: 1,
 			},
 			...orderedBooks,
 		]);
 	};
 
-	const removedBookHandler = (book) => {
+	const removedBookHandler = (bookId) => {
 		setOrderedBooks((orderedBooks) =>
-			orderedBooks.filter((orderedBook) => orderedBook.book !== book),
+			orderedBooks.filter((orderedBook) => orderedBook.bookId !== bookId),
 		);
 	};
 
-	const changedBookRentalTimeHandler = (book, amount) => {
+	const changedBookRentalTimeHandler = (bookId, amount) => {
 		setOrderedBooks((orderedBooks) => {
 			orderedBooks.find(
-				(orderedBook) => orderedBook.book === book,
+				(orderedBook) => orderedBook.bookId === bookId,
 			).rentalTime = amount;
 			return orderedBooks;
 		});
@@ -50,6 +51,7 @@ export const CartContextProvider = (props) => {
 						1.79,
 					),
 				],
+				orderedBooks: orderedBooks,
 				onAddedBook: addedBookHandler,
 				onRemovedBook: removedBookHandler,
 				onChangedBookRentalTime: changedBookRentalTimeHandler,

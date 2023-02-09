@@ -3,7 +3,7 @@ import styles from "./Header.module.css";
 import library from "../../assets/images/library-background.jpg";
 import Cart from "../Cart/Cart";
 import Overlay from "./Overlay";
-import Modal from "./Modal";
+import CartModal from "../Cart/CartModal";
 
 const HeroText = () => {
 	return (
@@ -14,8 +14,8 @@ const HeroText = () => {
 				books and enjoy a great time reading in our place or at home.
 			</p>
 			<p className={styles.desc__desc}>
-				All our books are chosen by book charts of best selling books,
-				each year, annualy, we are always open for you.
+				All of our books are chosen by book charts of best selling
+				books, each year, annualy, we are always open for you.
 			</p>
 		</div>
 	);
@@ -34,7 +34,7 @@ const Header = () => {
 				<Overlay onOverlayClicked={switchCartVisibility} />
 			) : null}
 			{!isCartHidden ? (
-				<Modal onButtonClicked={switchCartVisibility} />
+				<CartModal onButtonClicked={switchCartVisibility} />
 			) : null}
 			<header>
 				<section className={styles.nav}>
