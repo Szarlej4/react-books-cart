@@ -1,3 +1,4 @@
 body {
 	background: var(--background-dark);
+	padding-bottom: var(--default-padding);
 }

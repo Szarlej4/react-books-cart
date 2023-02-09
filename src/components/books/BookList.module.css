@@ -2,7 +2,7 @@
 	background: var(--night-blue);
 	border-radius: var(--default-border-radius);
 	box-shadow: 0 0 1rem 0.25rem rgba(0, 0, 0, 0.25);
-	margin: -7.5rem auto;
+	margin: 0 auto;
 	padding: var(--medium-padding);
 	width: clamp(20rem, 80vw, 75rem);
 }

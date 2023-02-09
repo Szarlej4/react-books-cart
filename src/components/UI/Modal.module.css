@@ -1,0 +1,29 @@
+.modal {
+	background: var(--night-blue);
+	border-radius: var(--default-border-radius);
+	color: white;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	left: 50%;
+	justify-content: center;
+	min-height: 10rem;
+	position: fixed;
+	transform: translate(-50%, -50%);
+	top: 50%;
+	padding: var(--medium-padding);
+	width: clamp(20rem, 80vw, 50rem);
+	z-index: 3;
+}
+
+.modalEmptyCart {
+	text-align: center;
+	font-size: 1.5rem;
+}
+
+.modalButtons {
+	justify-content: end;
+	display: flex;
+	gap: 1rem;
+	margin-right: 3rem;
+}
