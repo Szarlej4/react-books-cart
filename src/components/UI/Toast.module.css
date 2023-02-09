@@ -1,0 +1,19 @@
+.toast {
+	background: var(--dark-blue);
+	border-radius: var(--small-border-radius);
+	bottom: 1rem;
+	box-shadow: 0 0 4px 2px rgba(0, 0, 0, 0.25);
+	color: white;
+	font-size: 1.25rem;
+	left: 50%;
+	padding: var(--default-padding) var(--medium-padding);
+	position: fixed;
+	transform: translateX(-50%);
+}
+
+@media (max-width: 500px) {
+	.toast {
+		font-size: 1rem;
+		padding: var(--small-padding) var(--default-padding);
+	}
+}
