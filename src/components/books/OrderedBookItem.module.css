@@ -1,0 +1,14 @@
+.bookItem {
+	align-items: start;
+	border-bottom: 1px solid #c1b9d1;
+	color: #c1b9d1;
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+	padding: var(--default-padding) 0;
+}
+
+.bookTitle {
+	font-size: 1.5rem;
+	font-weight: bold;
+}

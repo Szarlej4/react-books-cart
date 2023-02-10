@@ -7,9 +7,15 @@ const OrderedBookItem = (props) => {
 	const { title, author, price } = ctx.availableBooks.find(
 		(book) => props.book.bookId === book.id,
 	);
+	const { rentalTime } = ctx.orderedBooks.find(
+		(book) => props.book.bookId === book.bookId,
+	);
 	return (
 		<li className={styles.bookItem}>
-			{title} {author} {price}
+			<p className={styles.bookTitle}>{title}</p>
+			<p className={styles.bookAuthor}>{author}</p>
+			<p className={styles.bookPrice}>${price} / week</p>
+			<span className={styles.rentalTime}>x{rentalTime}</span>
 		</li>
 	);
 };
