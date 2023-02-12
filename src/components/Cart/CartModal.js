@@ -7,14 +7,22 @@ import { CartContext } from "../../store/CartContext";
 
 const Modal = (props) => {
 	const ctx = useContext(CartContext);
-	const totalAmount = ctx.orderedBooks.reduce((acc, orderedBook) => {
-		return (
-			acc +
-			ctx.availableBooks.find((book) => book.id === orderedBook.bookId)
-				.price *
-				orderedBook.rentalTime
-		);
-	}, 0);
+	const totalAmount =
+		Math.round(
+			ctx.orderedBooks.reduce((acc, orderedBook) => {
+				return (
+					acc +
+					ctx.availableBooks.find(
+						(book) => book.id === orderedBook.bookId,
+					).price *
+						orderedBook.rentalTime
+				);
+			}, 0) * 100,
+		) / 100;
+	const orderClickHandler = () => {
+		console.log("Ordering...");
+		// ctx.orderedBooks.forEach((book) => ctx.onRemovedBook(book.bookId));
+	};
 	return createPortal(
 		<div className={styles.modal}>
 			{ctx.orderedBooks.length === 0 ? (
@@ -33,11 +41,11 @@ const Modal = (props) => {
 				{ctx.orderedBooks.length !== 0 && (
 					<Button
 						className={styles.orderButton}
-						onClick={props.onButtonClicked}>
+						onClick={orderClickHandler}>
 						Order
 					</Button>
 				)}
-				<Button onClick={props.onButtonClicked}>Close</Button>
+				<Button onClick={props.onCloseButtonClicked}>Close</Button>
 			</div>
 		</div>,
 		document.querySelector("#modal"),

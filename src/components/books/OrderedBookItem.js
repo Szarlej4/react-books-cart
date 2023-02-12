@@ -15,7 +15,12 @@ const OrderedBookItem = (props) => {
 			<p className={styles.bookTitle}>{title}</p>
 			<p className={styles.bookAuthor}>{author}</p>
 			<p className={styles.bookPrice}>${price} / week</p>
-			<span className={styles.rentalTime}>x{rentalTime}</span>
+			<p className={styles.rentalTime}>
+				<span className={styles.rentalTimeBackground}>
+					x {rentalTime}
+				</span>
+				week{rentalTime > 1 ? "s" : ""}
+			</p>
 		</li>
 	);
 };

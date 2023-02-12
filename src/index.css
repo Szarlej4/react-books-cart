@@ -24,6 +24,8 @@
 	--default-padding: 1rem;
 	--medium-padding: 2rem;
 	--big-padding: 3rem;
+	/* smooth scroll */
+	scroll-behavior: smooth;
 }
 
 *,

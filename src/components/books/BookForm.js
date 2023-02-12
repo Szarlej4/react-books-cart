@@ -21,7 +21,6 @@ const BookForm = (props) => {
 
 	const addBookToCart = (e) => {
 		e.preventDefault();
-		console.log(ctx.orderedBooks);
 		const amount = +amountRef.current.value;
 		if (amount > 0 && Math.floor(amount) === amount) {
 			let msg = "Book has been successfully added to the cart";

@@ -1,14 +1,33 @@
 .bookItem {
 	align-items: start;
 	border-bottom: 1px solid #c1b9d1;
-	color: #c1b9d1;
+	color: white;
 	display: flex;
 	flex-direction: column;
 	gap: 0.25rem;
+	margin-right: 0.5rem;
 	padding: var(--default-padding) 0;
 }
 
 .bookTitle {
 	font-size: 1.5rem;
 	font-weight: bold;
+}
+
+.bookPrice {
+	font-style: italic;
+}
+
+.rentalTime {
+	align-items: center;
+	display: flex;
+	gap: 0.25rem;
+}
+
+.rentalTimeBackground {
+	background: #30304b;
+	border: 1px solid white;
+	border-radius: var(--small-border-radius);
+	font-weight: bold;
+	padding: var(--little-padding) var(--small-padding);
 }

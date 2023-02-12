@@ -26,3 +26,18 @@
 	display: flex;
 	gap: 1rem;
 }
+
+.modalButtons > button {
+	font-weight: bold;
+}
+
+.totalAmount {
+	color: #ffffff;
+	font-size: 1.5rem;
+	font-weight: 900;
+}
+
+.orderButton {
+	background: white;
+	color: var(--night-blue);
+}

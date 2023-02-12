@@ -34,7 +34,7 @@ const Header = () => {
 				<Overlay onOverlayClicked={switchCartVisibility} />
 			) : null}
 			{!isCartHidden ? (
-				<CartModal onButtonClicked={switchCartVisibility} />
+				<CartModal onCloseButtonClicked={switchCartVisibility} />
 			) : null}
 			<header>
 				<section className={styles.nav}>
