@@ -1,56 +1,48 @@
-import { useRef, useState, useContext } from "react";
+import { useRef, useContext } from "react";
 import { CartContext } from "../../store/CartContext";
+import { ToastContext } from "../../store/ToastContext";
 import Button from "../UI/Button";
-import Toast from "../UI/Toast";
 import styles from "./BookForm.module.css";
 
 const BookForm = (props) => {
-	const ctx = useContext(CartContext);
+	const cartCtx = useContext(CartContext);
+	const toastCtx = useContext(ToastContext);
 	const amountRef = useRef(0);
-	const [isToastVisible, setIsToastVisible] = useState(false);
-	const [toastText, setToastText] = useState("");
-
-	const showToast = (text, length) => {
-		setTimeout(() => {
-			setIsToastVisible(false);
-			setToastText("");
-		}, length);
-		setIsToastVisible(true);
-		setToastText(text);
-	};
 
 	const addBookToCart = (e) => {
 		e.preventDefault();
 		const amount = +amountRef.current.value;
-		if (amount > 0 && Math.floor(amount) === amount) {
+		if (amount > 0 && amount < 53 && Math.floor(amount) === amount) {
 			let msg = "Book has been successfully added to the cart";
 			if (
-				ctx.orderedBooks.findIndex(
+				cartCtx.orderedBooks.findIndex(
 					(book) => book.bookId === props.book.id,
 				) === -1
 			) {
-				ctx.onAddedBook(props.book.id, amount);
+				cartCtx.onAddedBook(props.book.id, amount);
 			} else {
 				msg = `Book rental has been extended by ${amount} week${
 					amount > 1 ? "s" : ""
 				}`;
-				const rentalLength = ctx.orderedBooks.find(
+				const rentalLength = cartCtx.orderedBooks.find(
 					(book) => book.bookId === props.book.id,
 				).rentalTime;
-				ctx.onChangedBookRentalTime(
+				cartCtx.onChangedBookRentalTime(
 					props.book.id,
 					rentalLength + amount,
 				);
 			}
-			if (!isToastVisible) showToast(msg, 3000);
+			toastCtx.onChangedMessage(msg);
 		} else {
-			if (!isToastVisible && Math.floor(amount) !== amount) {
-				const msg = "Invalid amount (only natural numbers)";
-				showToast(msg, 3000);
-			} else if (!isToastVisible && amount < 1) {
-				const msg = "Invalid amount (min. 1 week)";
-				showToast(msg, 3000);
+			let msg = "Invalid amount (only natural numbers)";
+			if (Math.floor(amount) !== amount) {
+				msg = "Invalid amount (only natural numbers)";
+			} else if (amount < 1) {
+				msg = "Invalid amount (min. 1 week)";
+			} else {
+				msg = "Invalid amount (max. 52 weeks)";
 			}
+			toastCtx.onChangedMessage(msg);
 		}
 	};
 
@@ -76,7 +68,6 @@ const BookForm = (props) => {
 					+ Add
 				</Button>
 			</form>
-			{isToastVisible && <Toast>{toastText}</Toast>}
 		</>
 	);
 };

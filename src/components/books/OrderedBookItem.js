@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { CartContext } from "../../store/CartContext";
 import styles from "./OrderedBookItem.module.css";
 import Button from "../UI/Button";
@@ -8,7 +8,6 @@ const OrderedBookItem = (props) => {
 	const orderedBook = ctx.orderedBooks.find(
 		(book) => props.book.bookId === book.bookId,
 	);
-	const [rentalTime, setRentalTime] = useState(orderedBook.rentalTime);
 
 	const { title, author, price } = ctx.availableBooks.find(
 		(book) => props.book.bookId === book.id,
@@ -16,15 +15,19 @@ const OrderedBookItem = (props) => {
 
 	const increasedRentalHandler = () => {
 		console.log(ctx.orderedBooks);
-		ctx.onChangedBookRentalTime(props.book.bookId, rentalTime + 1);
-		setRentalTime((rentalTime) => rentalTime + 1);
+		ctx.onChangedBookRentalTime(
+			props.book.bookId,
+			orderedBook.rentalTime + 1,
+		);
 	};
 
 	const decreasedRentalHandler = () => {
 		console.log(ctx.orderedBooks);
-		if (rentalTime - 1 > 0) {
-			ctx.onChangedBookRentalTime(props.book.bookId, rentalTime - 1);
-			setRentalTime((rentalTime) => rentalTime - 1);
+		if (orderedBook.rentalTime - 1 > 0) {
+			ctx.onChangedBookRentalTime(
+				props.book.bookId,
+				orderedBook.rentalTime - 1,
+			);
 		} else {
 			ctx.onRemovedBook(props.book.bookId);
 		}
@@ -38,9 +41,9 @@ const OrderedBookItem = (props) => {
 				<p className={styles.bookPrice}>${price} / week</p>
 				<p className={styles.rentalTime}>
 					<span className={styles.rentalTimeBackground}>
-						x {rentalTime}
+						x {orderedBook.rentalTime}
 					</span>
-					week{rentalTime > 1 ? "s" : ""}
+					week{orderedBook.rentalTime > 1 ? "s" : ""}
 				</p>
 			</div>
 			<div className={styles.changeRentalButtons}>

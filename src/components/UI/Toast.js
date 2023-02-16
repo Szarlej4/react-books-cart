@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 
 const Toast = (props) => {
 	return createPortal(
-		<div className={styles.toast}>{props.children}</div>,
+		<div className={styles.toast}>{props.msg}</div>,
 		document.querySelector("#toast"),
 	);
 };

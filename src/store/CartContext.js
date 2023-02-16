@@ -14,7 +14,6 @@ const calcTotalAmount = (availableBooks, orderedBooks) => {
 	return (
 		Math.round(
 			orderedBooks.reduce((acc, orderedBook) => {
-				console.log(orderedBook);
 				return (
 					acc +
 					availableBooks.find(
@@ -55,6 +54,9 @@ export const CartContextProvider = (props) => {
 
 	const removedBookHandler = (bookId) => {
 		setOrderedBooks((orderedBooks) =>
+			orderedBooks.filter((orderedBook) => orderedBook.bookId !== bookId),
+		);
+		console.log(
 			orderedBooks.filter((orderedBook) => orderedBook.bookId !== bookId),
 		);
 	};
