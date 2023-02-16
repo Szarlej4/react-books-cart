@@ -5,7 +5,6 @@ import OrderedBookItem from "./OrderedBookItem";
 
 const OrderedBookList = () => {
 	const ctx = useContext(CartContext);
-	console.log(ctx.orderedBooks);
 	return (
 		<ul className={styles.bookList}>
 			{ctx.orderedBooks.map((book, id) => (

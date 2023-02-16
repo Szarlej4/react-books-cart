@@ -14,15 +14,15 @@ const OrderedBookItem = (props) => {
 	);
 
 	const increasedRentalHandler = () => {
-		console.log(ctx.orderedBooks);
-		ctx.onChangedBookRentalTime(
-			props.book.bookId,
-			orderedBook.rentalTime + 1,
-		);
+		if (orderedBook.rentalTime < 52) {
+			ctx.onChangedBookRentalTime(
+				props.book.bookId,
+				orderedBook.rentalTime + 1,
+			);
+		}
 	};
 
 	const decreasedRentalHandler = () => {
-		console.log(ctx.orderedBooks);
 		if (orderedBook.rentalTime - 1 > 0) {
 			ctx.onChangedBookRentalTime(
 				props.book.bookId,
@@ -47,8 +47,16 @@ const OrderedBookItem = (props) => {
 				</p>
 			</div>
 			<div className={styles.changeRentalButtons}>
-				<Button onClick={increasedRentalHandler}>+</Button>
-				<Button onClick={decreasedRentalHandler}>-</Button>
+				<Button
+					className={styles.changeRentalButton}
+					onClick={increasedRentalHandler}>
+					+
+				</Button>
+				<Button
+					className={styles.changeRentalButton}
+					onClick={decreasedRentalHandler}>
+					-
+				</Button>
 			</div>
 		</li>
 	);

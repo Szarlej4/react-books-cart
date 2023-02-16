@@ -15,7 +15,7 @@ const HeroText = () => {
 			</p>
 			<p className={styles.desc__desc}>
 				All of our books are chosen by book charts of best selling
-				books, each year, annualy, we are always open for you.
+				books, each year, annually, we are always open for you.
 			</p>
 		</div>
 	);
@@ -25,17 +25,17 @@ const Header = () => {
 	const [isCartHidden, setIsCartHidden] = useState(true);
 
 	const switchCartVisibility = () => {
-		isCartHidden ? setIsCartHidden(false) : setIsCartHidden(true);
+		setIsCartHidden((prevState) => !prevState);
 	};
 
 	return (
 		<>
-			{!isCartHidden ? (
-				<Overlay onOverlayClicked={switchCartVisibility} />
-			) : null}
-			{!isCartHidden ? (
-				<CartModal onCloseButtonClicked={switchCartVisibility} />
-			) : null}
+			{!isCartHidden && (
+				<>
+					<Overlay onOverlayClicked={switchCartVisibility} />
+					<CartModal onCloseButtonClicked={switchCartVisibility} />
+				</>
+			)}
 			<header>
 				<section className={styles.nav}>
 					<div className={styles.nav__wrapper}>
